@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{%block pied%}
+<div class="page-banner overlay-dark bg-image" style="background-image: url(../assets/img/bg_image_1.jpg);">
+    <div class="banner-section">
+      <div class="container text-center wow fadeInUp">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+            <li class="breadcrumb-item"><a href="{% url 'accueil' %}">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Portail Professionels de santé</li>
+          </ol>
+        </nav>
+        <h1 class="display-4" style="text-align:center;">Bonjour, cher Professionel de Santé</h1>
+      </div> <!-- .container -->
+    </div> <!-- .banner-section -->
+  </div>
+<br>
+
+<div class="jumbotron" style="margin-bottom:0px;">
+
+  <h3 class="lead" style="text-align:center;">Bienvenue dans votre espace, que souhaiteriez-vous faire ?</h3>
+  <hr class="my-4">
+
+  <h1 class="lead" style="text-align:center;">
+    <a class="btn btn-danger btn-lg" href="{% url 'ipro' %}" role="button">S'inscrire</a>
+    <a class="btn btn-success btn-lg" href="{% url 'prologin' %}" role="button">Se connecter</a>
+  </h1>
+</div>
+
+ {% endblock pied%}

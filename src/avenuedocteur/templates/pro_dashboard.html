@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% load static %}
+{%block nav%}
+
+        <div class="collapse navbar-collapse" id="navbarSupport">
+
+          <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+              <a class="btn btn-danger" href="{% url 'accueil' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-escape" viewBox="0 0 16 16">
+  <path d="M8.538 1.02a.5.5 0 1 0-.076.998 6 6 0 1 1-6.445 6.444.5.5 0 0 0-.997.076A7 7 0 1 0 8.538 1.02Z"/>
+  <path d="M7.096 7.828a.5.5 0 0 0 .707-.707L2.707 2.025h2.768a.5.5 0 1 0 0-1H1.5a.5.5 0 0 0-.5.5V5.5a.5.5 0 0 0 1 0V2.732l5.096 5.096Z"/>
+</svg>
+              </a>
+            </li>
+          </ul>
+          <div>
+          </div>
+        </div> <!-- .navbar-collapse -->
+      </div> <!-- .container -->
+    </nav>
+{%endblock nav%}
+{%block pied%}
+<br>
+<br>
+<br>
+{%include 'pro_dashboard_card.html'%}
+<br><br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-primary" style="margin-left:20%;">
+      <div class="panel-heading" style="text-align:center;">
+        <h4 class="panel-title">Des rendez-vous récents pour vous</h4>
+      </div>
+      <table class="table table-hover table-striped" id="dev-table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Nom du patient</th>
+            <th>Photo</th>
+            <th>Description</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        {% for a,p in rdvs %}
+        <tr>
+          <td>{{a.cltName}}</td>
+          <td> <img src="{% static p.photo.url %}" alt="Photo de profil" height="40px" width="40px" /></td>
+          <td>{{a.comm}}</td>
+          <td>{{p.contact}}</td>
+          <td>{{p.email}}</td>
+          <td>{{a.rdvDate}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+ {% endblock pied%}
